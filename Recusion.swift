@@ -34,3 +34,24 @@ let input = [1,2,3,4,5,6]
 
 let output = sumAllPrevNumbers(in: input)
 print("output: \(output)")
+
+/*
+Question 1.6:
+Write a function which accept characters representing 3 rods S,D and E and the number of discs (n),
+and print the movement of discs between pegs such that all discs are moved from the initial state (inside S) to the final state (inside D).
+*/
+
+func towerOfHanoi(sourcePeg: String, destinationPeg: String, extraPeg: String, disk: Int) {
+    if disk <= 0 {
+        return
+    }
+    
+    towerOfHanoi(sourcePeg: sourcePeg, destinationPeg: extraPeg, extraPeg: destinationPeg, disk: disk - 1)
+
+    print("disk: \(disk), from: \(sourcePeg), to: \(destinationPeg)")
+
+    towerOfHanoi(sourcePeg: extraPeg, destinationPeg: destinationPeg, extraPeg: sourcePeg, disk: disk - 1)
+}
+
+
+towerOfHanoi(sourcePeg: "Source", destinationPeg: "Destination", extraPeg: "Extra", disk: 3)
