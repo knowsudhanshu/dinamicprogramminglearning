@@ -55,3 +55,28 @@ func towerOfHanoi(sourcePeg: String, destinationPeg: String, extraPeg: String, d
 
 
 towerOfHanoi(sourcePeg: "Source", destinationPeg: "Destination", extraPeg: "Extra", disk: 3)
+
+/*
+Table of n Iterative and recursive approaches
+*/
+
+let n = 2
+
+/// Iterative approach
+// func tableIterative(of n: Int) {
+//     for i in 1...10 {
+//         print(n*i)
+//     }
+// }
+// tableIterative(of: n)
+
+/// Recursive approach
+func tableRecursive(of n: Int, times: Int = 1) {
+    if times > 10 {
+        return
+    }
+    print(n*times)
+    tableRecursive(of: n, times: times + 1)
+}
+
+tableRecursive(of: n)
